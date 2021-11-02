@@ -21,17 +21,17 @@
 
 ## 📕 設計書
 #### ○ ER図
-   [https://drive.google.com/file/d/1V4xzVS2Xq66uhVZ78EFbcyjlQJv960ao/view?usp=sharing]
+   https://drive.google.com/file/d/1V4xzVS2Xq66uhVZ78EFbcyjlQJv960ao/view?usp=sharing
 
 #### ○ テーブル定義書
-   [https://docs.google.com/spreadsheets/d/1mBE3eDxLePts7NoLZBuW3VQLRoMQDN2RsLs04neCTSw/edit?usp=sharing]
+   https://docs.google.com/spreadsheets/d/1mBE3eDxLePts7NoLZBuW3VQLRoMQDN2RsLs04neCTSw/edit?usp=sharing
 
 #### ○ アプリケーション詳細設計
-   [https://docs.google.com/spreadsheets/d/1uNTP5tg23g7s1qIrNH4AQijWiB6Fft_y/edit?usp=sharing&ouid=109135434898382626365&rtpof=true&sd=true)]
+   https://docs.google.com/spreadsheets/d/1uNTP5tg23g7s1qIrNH4AQijWiB6Fft_y/edit?usp=sharing&ouid=109135434898382626365&rtpof=true&sd=true
 
 
 ## 💪 チャレンジ要素一覧
- [https://docs.google.com/spreadsheets/d/1IKUsIsAkBwtgQh5P0Rep-GbJeH1GnK6hbL8JhiEhgnE/edit?usp=sharing]
+ https://docs.google.com/spreadsheets/d/1IKUsIsAkBwtgQh5P0Rep-GbJeH1GnK6hbL8JhiEhgnE/edit?usp=sharing
 
 ## 開発環境
  - OS：Linux(CentOS)
