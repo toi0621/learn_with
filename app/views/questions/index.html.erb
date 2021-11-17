@@ -1,0 +1,51 @@
+<body>
+ <main>
+　<p id="notice">Welcome! You have signed up successfully.</p>
+  <div class="container px-5 px-sm-0">
+   <div class="row">
+    <!--ユーザー情報-->
+    <div class="col-md-3">
+     <%= render 'users/info', user:@user %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+     <h2><strong>Q&A</strong></h2>
+      <table class="table table-hover table-inverse">
+       <thead>
+        <tr>
+        <th>Title</th>
+        <th>genre</th>
+        <th></th>
+        <th colspan="3"></th>
+        </tr>
+       </thead>
+       <tbody>
+       <% @questions.each do |question| %>
+        <tr>
+         <td>
+          <%= link_to user_path(question.user) do %>
+           <%= attachment_image_tag question.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+          <% end %>
+         </td>
+
+         <td>
+          <%= link_to question.title, question_path(question.id) %>
+
+         </td>
+
+         <td>
+          <%= question.body %>
+         </td>
+
+         <td>
+          <p><%= link_to "#{question.comments.count}コメント",question_path(question.id) %></p>
+         </td>
+        </tr>
+       <% end %>
+       </tbody>
+      </table>
+    </div>
+   </div>
+  </div>
+ </main>
+</body>

@@ -1,0 +1,66 @@
+<body>
+ <main>
+　<%= flash[:notice] %>
+  <div class="container px-5 px-sm-0">
+   <div class="row">
+    <!--ユーザー情報-->
+    <div class="col-md-3">
+     <%= render 'users/info', user:@user %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1">
+     <h2><strong>Q&A</strong></h2>
+      <table class="table">
+       <tbody>
+        <tr>
+         <td>
+          <%= link_to user_path(@user.id) do %>
+           <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          <% end %>
+           <br>
+          <%= link_to user_path(@user.id) do %>
+           <p><%= @question.user.name %></p>
+          <% end %>
+         </td>
+
+         <td>
+          <%= link_to @question.title, question_path(@question) %>
+         </td>
+
+         <td>
+          <%= @question.body %>
+         </td>
+
+         <td>
+          <% if @question.user == current_user %>
+          <%= link_to "Edit",edit_question_path(@question), class: "btn btn-sm btn-success edit_book_id" %>
+          <% end %>
+         </td>
+
+         <td>
+          <% if @question.user == current_user %>
+          <%= link_to "Destroy",question_path(@question), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger destroy_book_id" %>
+          <% end %>
+         </td>
+
+         <td>
+          <p>コメント件数：<%= @question.comments.count %></p>
+         </td>
+         
+        </tr>
+       </tbody>
+      </table>
+      
+      <!--コメント-->
+      <div id="comment_area">
+       <%= render 'comments/index', comment: @comment, question: @question %>
+      </div>
+      <div class="comment_form">
+       <%= render 'questions/comment', question: @question, comment: @comment %>
+      </div>
+      
+    </div>
+   </div>
+  </div>
+ </main>
+</body>

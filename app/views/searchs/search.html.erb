@@ -1,0 +1,129 @@
+<!--ユーザー-->
+<% if @model == 'user' %>
+ <h1 class="mt-3">User search for "<%= @content %>"</h1>
+  <table class="table table-hover table-inverse">
+   <thead>
+    <tr>
+     <th>image</th>
+     <th>name</th>
+     <th colspan="3"></th>
+    </tr>
+   </thead>
+   <tbody>
+   <% @records.each do |user| %>
+    <tr>
+     <td>
+      <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+     </td>
+
+     <td>
+      <%= user.name %>
+     </td>
+
+     <td>
+      <p>フォロー数：<%= user.followings.count %></p>
+     </td>
+
+     <td>
+       <p>フォロワー数：<%= user.followers.count %></p>
+     </td>
+
+     <td>
+      <% if user != current_user %>
+       <% if current_user.already_followed?(user) %>
+        <%= link_to "フォローを外す", user_relationships_path(user), method: :delete %>
+       <% else %>
+        <%= link_to "フォローする",user_relationships_path(user), method: :post %>
+       <% end %>
+      <% end %>
+     </td>
+
+     <td>
+      <%= link_to "Show", user_path(user) %>
+     </td>
+    </tr>
+   <% end %>
+   </tbody>
+  </table>
+<!--投稿-->
+<% else @model == 'post' %>
+ <h1 class="mt-3">Post search for "<%= @content %>"</h1>
+  <table class="table table-hover table-inverse">
+   <thead>
+    <tr>
+     <th></th>
+     <th>Title</th>
+     <th>Opinion</th>
+     <th colspan="3"></th>
+    </tr>
+   </thead>
+   <tbody>
+   <% @records.each do |post| %>
+    <tr>
+     <td>
+      <%= link_to user_path(post.user) do %>
+       <%= attachment_image_tag post.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+      <% end %>
+     </td>
+
+     <td>
+      <%= link_to post.title, post_path(post) %>
+     </td>
+
+     <td>
+      <%= post.body %>
+     </td>
+
+     <td>
+      <% if current_user.already_favorited?(post) %>
+       <%= link_to post_favorites_path(post), method: :delete do %>
+        <i class="fas fa-heart"></i>
+       <% end %>
+      <% else %>
+       <%= link_to postk_favorites_path(post), method: :post do %>
+        <i class="far fa-heart"></i>
+       <% end %>
+      <% end %>
+      <%= post.favorites.count %>
+      </td>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+  <!--質問-->
+  <% else @model == 'question' %>
+ <h1 class="mt-3">Question search for "<%= @content %>"</h1>
+  <table class="table table-hover table-inverse">
+   <thead>
+    <tr>
+     <th></th>
+     <th>Title</th>
+     <th>Question</th>
+     <th colspan="3"></th>
+    </tr>
+   </thead>
+   <tbody>
+   <% @records.each do |question| %>
+    <tr>
+     <td>
+      <%= link_to user_path(question.user) do %>
+       <%= attachment_image_tag question.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+      <% end %>
+     </td>
+
+     <td>
+      <%= link_to question.title, post_path(question) %>
+     </td>
+
+     <td>
+      <%= question.body %>
+     </td>
+
+     <td>
+      <p><%= link_to "#{question.comments.count}コメント",question_path(question.id) %></p>
+     </td>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+<% end %>
