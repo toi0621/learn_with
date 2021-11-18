@@ -8,47 +8,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body>
-   <!--ログインフラッシュメッセージ-->
-   <% if flash[:notice] %>
-    <div class="notification is-info">
-     <p class="notice"><%= notice %></p>
-    </div>
-   <% end %>
-
-   <% if flash[:alert] %>
-    <div class="notification is-danger">
-     <p class="alert"><%= alert %></p>
-    </div>
-   <% end %>
-
    <!--ヘッダー-->
   <header class="shadow-sm">
-   <nav class="navbar navbar-dark bg-dark">
+   <nav class="navbar navbar-dark bg-dark bg-info p-4">
     <div class="container">
-     <%= link_to root_path, class: "navbar-item" do %>
       <h1 class="text-white bg-dark" style="font-family: cursive;">LearnWith</h1>
-     <% end %>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
      </button>
      <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
-      <ul class="navbar-nav ml-auto">
+
+     <ul class="list-group list-group-horizontal-sm" >
      <% if user_signed_in? %>
+      <li>
+       <%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
+      </li>
+
+      <li>
+       <%= link_to "ユーザー", users_path, class:"fas fa-users nav-link text-light" %>
+      </li>
+
+      <li>
+       <%= link_to "投稿一覧", posts_path, class:"fas fa-upload nav-link text-light" %>
+      </li>
+
+      <li>
+       <%= link_to "Q&A一覧", questions_path, class:"fas fa-question nav-link text-light" %>
+      </li>
+
       <li>
        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
       </li>
 
       <% else %>
        <li>
+        <%= link_to "Home", root_path , class:"fas fa-home nav-link text-light" %>
+       </li>
+
+       <li>
         <%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
-       </li> 
+       </li>
+
        <li>
         <%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
-       </li>    
+       </li>
+
       <% end %>
       </ul>
      </div>
@@ -60,12 +68,13 @@
    <%= yield %>
   </main>
   <!--フッター-->
-  <footer class="bg-dark text-white pt-5 pb-4">
+  <div class="fixed-bottom">
+  <footer class="bg-dark text-white pt-2 pb-3">
    <div class="container">
     <div class="row no-gutters">
      <div class="col-md-4">
       <p>フッターメッセージ</p>
-      <h1 class="text-white bg-dark" style="font-family: cursive;">LearnWith</h1>
+      <h3 class="text-white bg-dark" style="font-family: cursive;" >LearnWith</h3>
      </div>
      <div class="col-md-8">
       <h6 class="text-white mt-2 mb-3">Link</h6>
@@ -78,6 +87,7 @@
     </div>
    </div>
   </footer>
+  </div>
 
   </body>
 </html>

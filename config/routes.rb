@@ -6,6 +6,9 @@ Rails.application.routes.draw do
  get '/search', to: 'searchs#search'
  resources :posts do
   resource :favorites, only:[:create, :destroy]
+ end
+ 
+ resources :questions do
   resources :comments, only:[:create, :destroy]
  end
 

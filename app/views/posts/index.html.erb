@@ -1,6 +1,5 @@
 <body>
  <main>
-　<p id="notice">Welcome! You have signed up successfully.</p>
   <div class="container px-5 px-sm-0">
    <div class="row">
     <!--ゆーざー情報-->
@@ -8,15 +7,16 @@
      <%= render 'users/info', user:@user %>
     </div>
 
-    <div class="col-md-8 offset-md-1">
-     <h2>Posts</h2>
+    <div class="col-md-8 offset-md-1 mt-3">
+     <h2 style="font-family: impact;">Posts</h2>
       <table class="table table-hover table-inverse">
        <thead>
         <tr>
-        <th>Title</th>
-        <th>genre</th>
-        <th></th>
-        <th colspan="3"></th>
+         <th>User</th>
+         <th>Title</th>
+         <th>Post Body</th>
+         <th></th>
+         <th colspan="4"></th>
         </tr>
        </thead>
        <tbody>
@@ -41,9 +41,6 @@
           <%= render 'favorites/favorite', post:post, favorite:@favorite %>
          </td>
 
-         <td>
-          <p><%= link_to "#{post.comments.count}コメント",post_path(post.id) %></p>
-         </td>
         </tr>
        <% end %>
        </tbody>

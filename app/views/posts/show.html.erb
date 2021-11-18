@@ -10,13 +10,19 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
-     <h2>Post detail</h2>
+     <h2 style="font-family: impact;">Post Detail</h2>
       <table class="table">
        <tbody>
         <tr>
+         <td><strong>User</strong></td>
+         <td><strong>Title</strong></td>
+         <td colspan='3'></td>
+        </tr>
+
+        <tr>
          <td>
           <%= link_to user_path(@user.id) do %>
-           <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+           <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
           <% end %>
            <br>
           <%= link_to user_path(@user.id) do %>
@@ -26,10 +32,6 @@
 
          <td>
           <%= link_to @post.title, post_path(@post) %>
-         </td>
-
-         <td>
-          <%= @post.body %>
          </td>
 
          <td>
@@ -48,6 +50,16 @@
           <%= render 'favorites/favorite', post:@post, favorite:@favorite %>
          </td>
         </tr>
+
+        <tr>
+         <td colspan='5'><strong>Post Body</strong></td>
+        </tr>
+        <tr>
+         <td colspan='5'>
+          <%=sanitize(@post.body).gsub("\n", '<br>').html_safe %>
+         </td>
+        </tr>
+
        </tbody>
       </table>
     </div>

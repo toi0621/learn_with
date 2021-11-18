@@ -1,6 +1,6 @@
- <h2><strong>User</strong></h2>
+ <center><h1 style="font-family: impact;">user</h1></center>
   <% if user.profile_image %>
-   <%= attachment_image_tag user, :profile_image_id, :fill, 100, 100, format: 'jpeg' %>
+   <center><%= attachment_image_tag user, :profile_image, :fill,100,100, format: 'jpeg', fallback: "no_image.jpg" %></center>
   <% else %>
    <img class="main_img" src="/assets/no_image-c7305210e2d30bf8f19461ca05a151bba6413a44a35124f673246160efefdc5e.jpg">
   <% end %>
@@ -50,10 +50,16 @@
    </tbody>
   </table>
 
-  <div class="row">
+  <div class="mr-3">
    <% if user == current_user %>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
      <i class="fas fa-user-cog"></i>
     <% end %>
    <% end %>
+  </div>
+
+  <div class="mr-3">
+   <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
+     <i>新規投稿</i>
+    <% end %>
   </div>
