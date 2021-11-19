@@ -1,10 +1,10 @@
 <table class="table table-hover table-inverse">
 <tbody>
-  <% question.question_comments.each do |question_comment| %>
+  <% question.comments.each do |question_comment| %>
  <tr>
   <td>
   <%= link_to user_path(comment.user.id) do %>
-   <%= attachment_image_tag comment.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+   <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
   <% end %>
   <br>
   <%= link_to user_path(comment.user.id) do %>
@@ -18,7 +18,7 @@
 
   <td>
    <% if comment.user == current_user %>
-    <%= link_to "Destroy",question_comment_path(comment.question,comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger destroy_book_id", remote: true %>
+    <%= link_to "Destroy",question_comment_path(comment.question,comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger destroy_question_id", remote: true %>
    <% end %>
   </td>
  </tr>

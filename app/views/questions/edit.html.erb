@@ -1,28 +1,33 @@
 <p id="notice"></p>
+ <div class="container mt-4">
  <div class="row">
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-   <h1>質問編集</h1>
-    <% if @question.errors.any? %>
-      <%= @question.errors.count %>error prohibited this obj from being saved:
-      <% @question.errors.full_messages.each do |message| %>
-      <% message %>
-      <% end %>
+  <div class="col-8 mx-auto">
+  <center><h2 style="font-family: impact;">Edit Q&A</h2></center>
+   <% if @question.errors.any? %>
+    <%= @question.errors.count %>error prohibited this obj from being saved:
+    <% @question.errors.full_messages.each do |message| %>
+     <% message %>
     <% end %>
-    <%= form_with model:@question, local:true do |f| %>
-     <div class="form-group">
-      <label for="question_title">Title</label>
-       <%= f.text_field :title, autofocus: true, id:"inputName"%>
-     </div>
-     <div class="form-group">
-      <label for="question_opinion">Question</label>
-       <%= f.text_area :body, autofocus: true, id:"inputName"%>
-     </div>
-     <div class="form-group">
-       <%= f.submit "Update Book" %>
-     </div>
-    <% end %>
+   <% end %>
+   
+   <%= form_with model:@question, local:true do |f| %>
+    <div class="form-group">
+     <strong><label for="question_title">Title</label></strong>
+     <%= f.text_field :title, class: "form-control", autofocus: true, id:"inputName", rows:"1" %>
+    </div>
+    
+    <div class="form-group">
+     <strong><label for="question_opinion">Question</label></strong>
+     <%= f.text_area :body,class: "form-control", autofocus: true, id:"inputName", rows:"10" %>
+    </div>
+    
+    <div class="form-group">
+     <%= f.submit "Update Book", class: "btn btn-primary" %>
+    </div>
+   <% end %>
+   
     <%= link_to "Show", question_path(@question.id) %>
-    "|"
+    <strong>|</strong>
     <%= link_to "Back", questions_path %>
   </div>
  </div>

@@ -9,9 +9,11 @@
       <table class="table table-hover table-inverse">
        <thead>
         <tr>
-         <th>image</th>
-         <th>name</th>
-         <th colspan="3"></th>
+         <th>Image</th>
+         <th>Name</th>
+         <th>Follows</th>
+         <th>Followers</th>
+         <th colspan="6"></th>
         </tr>
        </thead>
        <tbody>
@@ -22,29 +24,29 @@
          </td>
 
          <td>
-          <%= user.name %>
+          <strong><%= user.name %></strong>
          </td>
 
          <td>
-          <p>フォロー数：<%= user.followings.count %></p>
+          <p class="fas fa-user">　<strong><%= user.followings.count %></strong></p>
          </td>
 
          <td>
-          <p>フォロワー数：<%= user.followers.count %></p>
+          <p class="far fa-user">　<strong><%= user.followers.count %></strong></p>
          </td>
 
          <td>
          <% if user != current_user %>
           <% if current_user.already_followed?(user) %>
-           <%= link_to "フォローを外す", user_relationships_path(user), method: :delete %>
+           <%= link_to "フォロー中", user_relationships_path(user), method: :delete, class: "btn btn-primary" %>
           <% else %>
-           <%= link_to "フォローする",user_relationships_path(user), method: :post %>
+           <%= link_to "フォローする",user_relationships_path(user), method: :post, class: "btn btn-primary"  %>
           <% end %>
          <% end %>
          </td>
 
          <td>
-          <%= link_to "Show", user_path(user) %>
+          <strong><%= link_to "Show", user_path(user) %></strong>
          </td>
 
         </tr>

@@ -35,7 +35,7 @@
      <% if user != current_user %>
       <% if current_user.already_followed?(user) %>
        <%= link_to user_relationships_path(user), method: :delete do %>
-        <button class="btn btn-primary">フォローを外す</button>
+        <button class="btn btn-primary">フォロー中</button>
        <% end %>
       <% else %>
        <%= link_to user_relationships_path(user), method: :post do %>
@@ -57,9 +57,17 @@
     <% end %>
    <% end %>
   </div>
+  
+  <br>
 
   <div class="mr-3">
    <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
-     <i>新規投稿</i>
+     <strong><i>New Post</i></strong>
+    <% end %>
+  </div>
+ 
+  <div class="mr-3">
+   <%= link_to new_question_path, class: "btn btn-outline-secondary btn-block" do %>
+     <strong><i>New Question</i></strong>
     <% end %>
   </div>

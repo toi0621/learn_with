@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-   @question = Question.new(post_params)
+   @question = Question.new(question_params)
    @question.user_id = current_user.id
    if @question.save
     flash[:notice] = 'You have created post successfully.'
@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
   def show
    @Questiontnew = Question.new
    @question = Question.find(params[:id])
-   @user = User.find(@post.user_id)
+   @user = User.find(@question.user_id)
    @comment = Comment.new
   end
 

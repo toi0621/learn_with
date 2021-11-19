@@ -22,7 +22,7 @@
         <tr>
          <td>
           <%= link_to user_path(@user.id) do %>
-           <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
           <% end %>
            <br>
           <%= link_to user_path(@user.id) do %>
@@ -54,9 +54,10 @@
         <tr>
          <td colspan='5'><strong>Post Body</strong></td>
         </tr>
+        
         <tr>
          <td colspan='5'>
-          <%=sanitize(@post.body).gsub("\n", '<br>').html_safe %>
+          <%= sanitize(@post.body).gsub("\n", '<br>').html_safe %>
          </td>
         </tr>
 
