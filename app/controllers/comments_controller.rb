@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
  def destroy
   @question = Question.find(params[:question_id])
-  QuestionComment.find_by(id: params[:id]).destroy
+  Comment.find_by(id: params[:id]).destroy
 
  end
 
