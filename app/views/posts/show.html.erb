@@ -16,6 +16,7 @@
         <tr>
          <td><strong>User</strong></td>
          <td><strong>Title</strong></td>
+          <td><strong>Genre</strong></td>
          <td colspan='3'></td>
         </tr>
 
@@ -32,6 +33,12 @@
 
          <td>
           <%= link_to @post.title, post_path(@post) %>
+         </td>
+         
+         <td>
+          <%= link_to posts_path(genre: @post.genre.id) do %>
+           <%= @post.genre.name %>
+          <%end%>
          </td>
 
          <td>

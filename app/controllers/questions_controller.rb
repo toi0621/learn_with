@@ -38,13 +38,16 @@ class QuestionsController < ApplicationController
 
   def index
    @questions = Question.all
+   if params[:genre] != nil
+    @questions = Question.where(genre: params[:genre])
+   end
    @user = current_user
    @question = Question.new
 
   end
 
   def show
-   @Questiontnew = Question.new
+   @questiontnew = Question.new
    @question = Question.find(params[:id])
    @user = User.find(@question.user_id)
    @comment = Comment.new
@@ -59,7 +62,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-   params.require(:question).permit(:title, :body)
+   params.require(:question).permit(:title, :body, :genre_id)
   end
 
 

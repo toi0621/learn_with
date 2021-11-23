@@ -38,6 +38,9 @@ class PostsController < ApplicationController
 
   def index
    @posts = Post.all
+   if params[:genre] != nil
+    @posts = Post.where(genre: params[:genre])
+   end
    @user = current_user
    @post = Post.new
 
@@ -48,6 +51,7 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
    @user = User.find(@post.user_id)
    @comment = Comment.new
+   
   end
 
   def destroy
@@ -59,7 +63,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-   params.require(:post).permit(:title, :body)
+   params.require(:post).permit(:title, :body, :genre_id)
   end
 
 

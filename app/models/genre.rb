@@ -1,6 +1,6 @@
 class Genre < ApplicationRecord
 
-    has_many :questions,  dependent: :destroy
-    has_many :posts, dependent: :destroy
+    has_many :questions
+    has_many :posts
 
 end

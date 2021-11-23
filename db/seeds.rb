@@ -8,11 +8,10 @@
 
 Genre.create(name: '数学') unless Genre.exists?(name: '数学')
 Genre.create(name: '英語') unless Genre.exists?(name: '英語')
-Genre.create(name: '古文') unless Genre.exists?(name: '古文')
-Genre.create(name: '現代文') unless Genre.exists?(name: '現代文')
+Genre.create(name: '国語') unless Genre.exists?(name: '国語')
 Genre.create(name: '地理') unless Genre.exists?(name: '地理')
 Genre.create(name: '歴史') unless Genre.exists?(name: '歴史')
-Genre.create(name: '化学') unless Genre.exists?(name: '化学')
+Genre.create(name: '理科') unless Genre.exists?(name: '理科')
 Genre.create(name: 'プログラミング') unless Genre.exists?(name: 'プログラミング')
 Genre.create(name: '簿記') unless Genre.exists?(name: '簿記')
 Genre.create(name: 'FP') unless Genre.exists?(name: 'FP')

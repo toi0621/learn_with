@@ -9,23 +9,29 @@
      <% message %>
     <% end %>
    <% end %>
-   
+
    <%= form_with model:@question, local:true do |f| %>
     <div class="form-group">
      <strong><label for="question_title">Title</label></strong>
      <%= f.text_field :title, class: "form-control", autofocus: true, id:"inputName", rows:"1" %>
     </div>
-    
+
+     <!--セレクトボックス-->
+    <div class="form-group">
+     <strong><label for="post_title">Genre</label></strong><br>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+    </div>
+
     <div class="form-group">
      <strong><label for="question_opinion">Question</label></strong>
      <%= f.text_area :body,class: "form-control", autofocus: true, id:"inputName", rows:"10" %>
     </div>
-    
+
     <div class="form-group">
      <%= f.submit "Update Book", class: "btn btn-primary" %>
     </div>
    <% end %>
-   
+
     <%= link_to "Show", question_path(@question.id) %>
     <strong>|</strong>
     <%= link_to "Back", questions_path %>
