@@ -3,11 +3,14 @@
  <div class="row">
   <div class="col-8 mx-auto">
   <center><h2 style="font-family: impact;">Edit Q&A</h2></center>
+   <!--エラーメッセージ-->
    <% if @question.errors.any? %>
-    <%= @question.errors.count %>error prohibited this obj from being saved:
-    <% @question.errors.full_messages.each do |message| %>
-     <% message %>
-    <% end %>
+    <h5 class="text-danger"><%= @question.errors.count %> error</h5>
+    <ul>
+     <% @question.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+     <% end %>
+    </ul>
    <% end %>
 
    <%= form_with model:@question, local:true do |f| %>

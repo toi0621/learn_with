@@ -6,8 +6,7 @@ class QuestionsController < ApplicationController
 
   def edit
    @question = Question.find(params[:id])
-   if @question.user == current_user
-   else
+   unless @question.user == current_user
     redirect_to questions_path
    end
   end
@@ -19,9 +18,9 @@ class QuestionsController < ApplicationController
     flash[:notice] = 'You have created post successfully.'
     redirect_to question_path(@question)
    else
-    @questions = Question.all
-    @user = current_user
-    render :index
+    # @questions = Question.all
+    # @user = current_user
+    render :new
    end
   end
 

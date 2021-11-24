@@ -23,26 +23,30 @@
      <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
 
      <ul class="list-group list-group-horizontal-sm" >
-     <% if user_signed_in? %>
-      <li>
-       <%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
-      </li>
+      <% if user_signed_in? %>
+       <li>
+        <%= link_to "Home", user_path(current_user.id), class:"fas fa-home nav-link text-light" %>
+       </li>
 
-      <li>
-       <%= link_to "ユーザー", users_path, class:"fas fa-users nav-link text-light" %>
-      </li>
+       <li>
+        <%= link_to "ユーザー", users_path, class:"fas fa-users nav-link text-light" %>
+       </li>
 
-      <li>
-       <%= link_to "投稿一覧", posts_path, class:"fas fa-upload nav-link text-light" %>
-      </li>
+       <li>
+        <%= link_to "投稿一覧", posts_path, class:"fas fa-upload nav-link text-light" %>
+       </li>
 
-      <li>
-       <%= link_to "Q&A一覧", questions_path, class:"fas fa-question nav-link text-light" %>
-      </li>
+       <li>
+        <%= link_to "Q&A一覧", questions_path, class:"fas fa-question nav-link text-light" %>
+       </li>
 
-      <li>
-       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
-      </li>
+       <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
+       </li>
+      
+       <li>
+        <%= render 'searchs/form' %>
+       </li>
 
       <% else %>
        <li>

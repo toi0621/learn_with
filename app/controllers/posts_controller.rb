@@ -6,8 +6,7 @@ class PostsController < ApplicationController
 
   def edit
    @post = Post.find(params[:id])
-   if @post.user == current_user
-   else
+   unless @post.user == current_user
     redirect_to posts_path
    end
   end
@@ -19,9 +18,9 @@ class PostsController < ApplicationController
     flash[:notice] = 'You have created post successfully.'
     redirect_to post_path(@post)
    else
-    @posts = Post.all
-    @user = current_user
-    render :index
+    # @posts = Post.all
+    # @user = current_user
+    render :new
    end
   end
 
@@ -51,7 +50,7 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
    @user = User.find(@post.user_id)
    @comment = Comment.new
-   
+
   end
 
   def destroy
