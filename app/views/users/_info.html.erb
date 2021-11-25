@@ -1,9 +1,5 @@
  <center><h1 style="font-family: impact;">user</h1></center>
-  <% if user.profile_image %>
-   <center><%= attachment_image_tag user, :profile_image, :fill,100,100, format: 'jpeg', fallback: "no_image.jpg" %></center>
-  <% else %>
-   <img class="main_img" src="/assets/no_image-c7305210e2d30bf8f19461ca05a151bba6413a44a35124f673246160efefdc5e.jpg">
-  <% end %>
+  <center><%= attachment_image_tag user, :profile_image, :fill,100,100, format: 'jpeg', fallback: "no_image.jpg", size:"100x100" %></center>
   <table class="table">
    <tbody>
     <tr>
@@ -56,7 +52,7 @@
     <% end %>
    <% end %>
   </div>
- 
 
-  
- 
+
+
+

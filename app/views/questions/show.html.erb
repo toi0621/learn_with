@@ -21,7 +21,7 @@
         <tr>
          <td>
           <%= link_to user_path(@user.id) do %>
-           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:"40x40" %>
           <% end %>
            <br>
           <%= link_to user_path(@user.id) do %>
@@ -56,7 +56,7 @@
          <td>
           <strong><h5>Q&A Body</h5></strong>
          </td>
-         
+
          <td>
           <strong><p>コメント：<%= @question.comments.count %>件</p></strong>
          </td>
