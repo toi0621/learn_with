@@ -25,4 +25,14 @@
 .main-padding {
   overflow: scroll;
   padding-bottom: 120px;
+  // background-image: image-url("lake.jpg");
+  // background-size: cover;
 }
+
+.top-main-padding {
+  overflow: scroll;
+  background-image: image-url("lake.jpg");
+  background-size: cover;
+  padding-bottom: 100%;
+}
+

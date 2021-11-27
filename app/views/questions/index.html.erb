@@ -14,7 +14,8 @@
         <tr>
          <th>User</th>
          <th>Title</th>
-         <th>Body</th>
+         <th>Genre</th>
+         <th>Q&A Body</th>
          <th colspan="3"></th>
         </tr>
        </thead>
@@ -28,7 +29,7 @@
          </td>
 
          <td>
-          <%= link_to question.title, question_path(question.id) %>
+          <%= link_to question.title[0..40], question_path(question.id) %>
          </td>
 
          <td>
@@ -38,7 +39,7 @@
          </td>
 
          <td>
-          <%= question.body %>
+          <%= question.body[0..52] %>
          </td>
 
         </tr>

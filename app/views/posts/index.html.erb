@@ -29,7 +29,7 @@
          </td>
 
          <td>
-          <%= link_to post.title, post_path(post.id) %>
+          <%= link_to post.title[0..40], post_path(post.id) %>
          </td>
 
          <td>
@@ -39,7 +39,7 @@
          </td>
 
          <td>
-          <%= post.body %>
+          <%= post.body[0..52] %>
          </td>
 
          <td id="favorite_buttons_<%= post.id %>">
