@@ -1,22 +1,22 @@
   <div class="container" id="top">
-  <%= flash[:notice] %>  
+  <%= flash[:notice] %>
    <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6"></br>
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-8"></br>
       <center><h1 style="font-family: impact;">welcome to  <i class="fas fa-graduation-cap"></i><strong style="font-family: cursive;">Learn With</strong></h1></center></br>
-      <center><h5><i class="fas fa-graduation-cap"></i><strong style="font-family: ;">Learn With では…</strong></center></h5></br>
-      <center class="text-body"><strong>日々の学習の中で学んだ知識や技術をアウトプットとして<%= link_to "投稿", new_post_path %>できたり、</strong></center></br>
-      <center><strong>勉強でつまずいた方のために<%= link_to "Q&A機能", new_question_path %>もご活用いただけます！</strong></center></br>
-      <center><strong>学生から社会人までお気軽にご活用くださいませ！</strong></center></br>
+      <center><h4><i class="fas fa-graduation-cap"></i><strong style="font-family: cursive;">Learn With では…</strong></center></h4></br>
+      <center class="text-body"><h5><strong>日々の学習の中で学んだ知識や技術をアウトプットとして<%= link_to "投稿", new_post_path %>できたり、</strong></h5></center></br>
+      <center><h5><strong>勉強でつまずいた方のために<%= link_to "Q&A機能", new_question_path %>もご活用いただけます！</strong></h5></center></br>
+      <center><h5><strong>学生から社会人までお気軽にご活用くださいませ！</strong></h5></center></br>
       <p></p>
+      <!--新規登録及びログイn-->
       <div class="btn-wrapper col-10 mx-auto">
         <div class="row">
-          <%= link_to "Log in", user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          <%= link_to "ログイン", user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
         </div>
         <div class="row">
-          <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-success btn-sm btn-block mb-3 sign_up" %>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success btn-sm btn-block mb-3 sign_up" %>
         </div></br>
       </div>
     </div>
    </div>
   </div>
-  

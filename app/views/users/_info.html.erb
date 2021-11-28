@@ -3,24 +3,24 @@
   <table class="table">
    <tbody>
     <tr>
-	    <th>name</th>
+	    <th>名前</th>
 	    <th><%= user.name %></th>
     </tr>
 
     <tr>
-     <th>profile</th>
+     <th>ひとこと️</th>
      <th><%= user.profile %></th>
     </tr>
 
     <tr>
-     <th>follows</th>
+     <th>フォロー中</th>
      <th>
       <%= link_to user.followings.count, followings_user_path(user) %>
      </th>
     </tr>
 
     <tr>
-     <th>followers</th>
+     <th>フォロワー</th>
      <th>
       <%= link_to user.followers.count, followers_user_path(user) %>
      </th>
@@ -47,7 +47,7 @@
   </table>
   <div class="mr-3">
    <% if user == current_user %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+    <%= link_to edit_user_path(user), class: "btn btn-secondary btn-block" do %>
      <i class="fas fa-user-cog"></i>
     <% end %>
    <% end %>

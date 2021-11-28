@@ -13,9 +13,9 @@
        <thead>
         <tr>
          <th>User</th>
-         <th>Title</th>
+         <th>タイトル</th>
          <th>Genre</th>
-         <th>Post Body</th>
+         <th>投稿本文</th>
          <th colspan="4"></th>
         </tr>
        </thead>
@@ -54,10 +54,15 @@
       <br>
       <!--新規投稿ボタン-->
      <div class="col-md-6">
-      <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
+      <%= link_to new_post_path, class: "btn btn-secondary btn-block" do %>
        <strong><i>New Post</i></strong>
       <% end %>
      </div>
+     <br>
+      <!--ページネーション-->
+     <div class="col-md-6">
+      <%= paginate @posts %>
+     </div> 
     </div>
    </div>
   </div>

@@ -11,12 +11,12 @@
     <h2 style="font-family: impact;">My Posts</h2>
       <table class="table table-hover table-inverse">
        <thead>
-        <tr>
-         <th>User</th>
-         <th>genre</th>
-         <th>Title</th>
-         <th></th>
-         <th colspan="3"></th>
+        <tr class="teble-box">
+         <th class="table-box2"><center>Me</center></th>
+         <th class="table-box2">タイトル</th>
+         <th class="table-box2">投稿本文</th>
+         <th class="table-box2"></th>
+         <th colspan="3", class="table-box2"></th>
         </tr>
        </thead>
        <tbody>
@@ -29,15 +29,21 @@
          </td>
 
          <td>
-          <%=link_to post.title, post_path(post) %>
+          <%=link_to post.title[0..40], post_path(post) %>
          </td>
 
          <td>
-          <%= post.body %>
+          <%= post.body[0..52]  %>
          </td>
 
         </tr>
        <% end %>
+
+        <tr>
+         <td>
+          <%= paginate @posts %>
+         </td>
+        </tr>
        </tbody>
       </table>
     </div>

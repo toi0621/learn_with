@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   end
 
   def index
-   @posts = Post.all
+   @posts = Post.all.page(params[:page]).per(10)
    if params[:genre] != nil
     @posts = Post.where(genre: params[:genre])
    end

@@ -2,12 +2,13 @@ class UsersController < ApplicationController
   
   def show
    @user = User.find(params[:id])
-   @posts = Post.where(user_id: @user.id)
+   @posts = Post.where(user_id: @user.id).page(params[:page]).per(10)
    @post = Post.new
+ 
   end
 
   def index
-   @users = User.all
+   @users = User.all.page(params[:page]).per(10)
    @user = current_user
    @post = Post.new
    @usered = User.where.not(id: current_user.id)

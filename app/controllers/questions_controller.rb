@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-   @questions = Question.all
+   @questions = Question.all.page(params[:page]).per(10)
    if params[:genre] != nil
     @questions = Question.where(genre: params[:genre])
    end
