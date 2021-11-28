@@ -57,9 +57,6 @@
           <strong><h5>Q&A 本文</h5></strong>
          </td>
 
-         <td>
-          <strong><p>コメント：<%= @question.comments.count %>件</p></strong>
-         </td>
          <td colspan='3'></td>
         </tr>
 
@@ -67,6 +64,7 @@
          <td colspan='5'>
            <%= sanitize(@question.body).gsub("\n", '<br>').html_safe %>
          </td>
+      
         </tr>
 
        </tbody>

@@ -36,12 +36,13 @@ class QuestionsController < ApplicationController
   end
 
   def index
-   @questions = Question.all.page(params[:page]).per(10)
-   if params[:genre] != nil
-    @questions = Question.where(genre: params[:genre])
+   if params[:genre].present?
+     @questions = Question.where(genre: params[:genre]).page(params[:page]).per(10)
+   else
+     @questions = Question.all.page(params[:page]).per(10)
    end
-   @user = current_user
-   @question = Question.new
+    @user = current_user
+    @question = Question.new
 
   end
 

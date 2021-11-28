@@ -8,9 +8,13 @@
     </div>
 
     <div class="col-md-8 offset-md-1 mt-3">
-      <h2 style="font-family: impact;">Q&A</h2>
+     <h2 style="font-family: impact;">Q&A</h2>
+      <!--投稿がない場合-->
+     <% if @questions.empty? %>
+      <strong><p>質問がございません。</p></strong>
+     <% else %>
       <table class="table table-hover table-inverse">
-       <thead class="table-">
+       <thead class="table-box">
         <tr>
          <th>User</th>
          <th>タイトル</th>
@@ -46,15 +50,17 @@
        <% end %>
        </tbody>
       </table>
-      <br>
+     <% end %>
+     <br>
       <!--新規質問ボタン-->
      <div class="col-md-6">
       <%= link_to new_question_path, class: "btn btn-secondary btn-block" do %>
        <strong><i>New Question</i></strong>
       <% end %>
      </div>
+     <br><br>
      <!--ページネーション-->
-    <div>
+    <div class="col-md-6">
      <%= paginate @questions %>
     </div> 
      

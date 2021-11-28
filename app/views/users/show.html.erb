@@ -8,7 +8,11 @@
      <%= render 'users/info', user:@user %>
     </div>
     <div class="col-md-8 offset-md-1 mt-3">
-    <h2 style="font-family: impact;">My Posts</h2>
+    <h2 style="font-family: impact;">User Posts</h2>
+    <!--投稿がない場合-->
+     <% if @posts.empty? %>
+      <strong><p>投稿がございません。</p></strong>
+     <% else %>
       <table class="table table-hover table-inverse">
        <thead>
         <tr class="teble-box">
@@ -19,33 +23,50 @@
          <th colspan="3", class="table-box2"></th>
         </tr>
        </thead>
-       <tbody>
-       <% @posts.each do |post| %>
-        <tr>
-         <td>
-          <%= link_to user_path(post.user) do %>
-           <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:"40x40" %>
-          <% end %>
-         </td>
+        <tbody>
+        <% @posts.each do |post| %>
+         <tr>
+          <td>
+           <%= link_to user_path(post.user) do %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:"40x40" %>
+           <% end %>
+          </td>
 
-         <td>
-          <%=link_to post.title[0..40], post_path(post) %>
-         </td>
+          <td>
+           <%=link_to post.title[0..40], post_path(post) %>
+          </td>
 
-         <td>
-          <%= post.body[0..52]  %>
-         </td>
+          <td>
+           <%= post.body[0..52]  %>
+          </td>
+         </tr>
 
-        </tr>
+        <% end %>
+        </tbody>
+      </table>
+     <% end %>
+      <br>
+       <!--新規質問ボタン-->
+      <div class="col-md-6">
+       <%= link_to new_question_path, class: "btn btn-secondary btn-block" do %>
+        <strong><i>New Question</i></strong>
        <% end %>
+      </div>
+      <br>
+       <!--新規質問ボタン-->
+      <div class="col-md-6">
+       <%= link_to new_question_path, class: "btn btn-secondary btn-block" do %>
+        <strong><i>New Question</i></strong>
+       <% end %>
+      </div>
 
+      <!--ページネーション-->
         <tr>
          <td>
           <%= paginate @posts %>
          </td>
         </tr>
-       </tbody>
-      </table>
+
     </div>
    </div>
   </div>

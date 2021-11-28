@@ -36,13 +36,13 @@ class PostsController < ApplicationController
   end
 
   def index
-   @posts = Post.all.page(params[:page]).per(10)
-   if params[:genre] != nil
-    @posts = Post.where(genre: params[:genre])
+   if params[:genre].present?
+     @posts = Post.where(genre: params[:genre]).page(params[:page]).per(10)
+   else
+     @posts = Post.all.page(params[:page]).per(10)
    end
    @user = current_user
    @post = Post.new
-
   end
 
   def show

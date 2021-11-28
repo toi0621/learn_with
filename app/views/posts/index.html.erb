@@ -9,6 +9,10 @@
 
     <div class="col-md-8 offset-md-1 mt-3">
      <h2 style="font-family: impact;">Posts</h2>
+     <!--投稿がない場合-->
+     <% if @posts.empty? %>
+      <strong><p>投稿がございません。</p></strong>
+     <% else %>
       <table class="table table-hover table-inverse">
        <thead>
         <tr>
@@ -50,19 +54,20 @@
        <% end %>
        </tbody>
       </table>
-
-      <br>
+     <% end %>
+     <br>
       <!--新規投稿ボタン-->
      <div class="col-md-6">
       <%= link_to new_post_path, class: "btn btn-secondary btn-block" do %>
        <strong><i>New Post</i></strong>
       <% end %>
      </div>
-     <br>
+     <br><br>
       <!--ページネーション-->
      <div class="col-md-6">
       <%= paginate @posts %>
      </div> 
+     
     </div>
    </div>
   </div>
