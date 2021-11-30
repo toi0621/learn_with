@@ -14,11 +14,11 @@
       <p><%= comment.user.name %></p>
       <% end %>
      </td>
-   
+
      <td>
-      <p><%= sanitize(comment.comment).gsub("\n", '<br>').html_safe %></p>
+      <p><%= sanitize (comment.comment).gsub("\n", '<br>').html_safe %></p>
      </td>
-   
+
      <td>
       <% if comment.user == current_user %>
        <%= link_to "Destroy",question_comment_path(comment.question,comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger destroy_question_id", remote: true %>
