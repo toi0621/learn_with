@@ -3,9 +3,9 @@
   <div class="col-10 mx-auto">
    <!--ユーザー-->
   <% if @model == 'user' %>
-   <center><h3 style="font-family: impact;">search results"<%= @content %>"</h3></center>
+   <center><h2 style="font-family: impact;">search results"<%= @content %>"</h2></center><br>
    <% if @records.empty? %>
-    <strong><p>検索結果がありません。</p></strong>
+    <center><h5>検索結果がありません。</h5></center>
    <% else %>
    <table class="table table-hover table-inverse">
     <thead>
