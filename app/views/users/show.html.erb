@@ -16,7 +16,11 @@
       <table class="table table-hover table-inverse">
        <thead>
         <tr class="teble-box">
+        <% if @user == current_user %>
          <th class="table-box2"><center>Me</center></th>
+        <% else %>
+         <th class="table-box2">User</th>
+        <% end %>
          <th class="table-box2">タイトル</th>
          <th class="table-box2">投稿本文</th>
          <th class="table-box2"></th>
@@ -54,11 +58,13 @@
       </div>
       <br>
        <!--新規質問ボタン-->
-      <div class="col-md-6">
-       <%= link_to new_question_path, class: "btn btn-secondary btn-block" do %>
-        <strong><i>New Question</i></strong>
+       <% if @user == current_user %>
+        <div class="col-md-6">
+         <%= link_to new_question_path, class: "btn btn-secondary btn-block" do %>
+          <strong><i>New Question</i></strong>
+         <% end %>
+        </div>
        <% end %>
-      </div>
 
       <!--ページネーション-->
         <tr>
