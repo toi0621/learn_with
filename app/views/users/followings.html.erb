@@ -1,6 +1,6 @@
  <div class="container mt-3">
   <div class="row">
-   <div class="col-10 mx-auto">  
+   <div class="col-10 mx-auto">
     <center><h2 style="font-family: impact;">Follow User</h2></center><br>
      <% if @users.count != 0 %>
       <table class="table table-hover table-inverse">
@@ -19,25 +19,25 @@
          <td>
           <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:"40x40" %>
          </td>
-    
+
          <td>
           <%= user.name %>
          </td>
-    
+
           <td>
            <p class="fas fa-user">　<strong><%= user.followings.count %></strong></p>
           </td>
-    
+
           <td>
            <p class="far fa-user">　<strong><%= user.followers.count %></strong></p>
           </td>
-    
+
           <td>
            <strong><%= link_to "Show",user_path(user) %></strong>
           </td>
-    
+
          </tr>
-    
+
         <% end %>
         </tbody>
        </table>
@@ -45,8 +45,8 @@
      <!--フォローしているユーザーがいない場合-->
       <center><h5>ユーザーはいません</h5></center>
      <% end %>
-     
+
    </div>
   </div>
  </div>
-  
+
